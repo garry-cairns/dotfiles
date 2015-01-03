@@ -12,6 +12,7 @@ if has("autocmd")
   " Soft breaks for text files
   autocmd FileType markdown setlocal wrap linebreak nolist spell
   autocmd FileType tex setlocal wrap linebreak nolist spell
+  autocmd FileType text setlocal wrap linebreak nolist spell
 
 endif
 
