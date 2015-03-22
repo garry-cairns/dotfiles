@@ -100,6 +100,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+alias clean_docker_containers='sudo docker rm `sudo docker ps --no-trunc -aq`'
+alias clean_docker_images='sudo docker rmi `sudo docker images --no-trunc -aq`'
 alias maintain='sudo apt-get update; sudo apt-get upgrade; sudo apt-get autoremove; sudo apt-get autoclean'
 alias font_refresh='fc-cache -f -v'
 export PATH=$PATH:$HOME/.local/bin

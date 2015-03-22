@@ -10,7 +10,7 @@ if has("autocmd")
   filetype on
 
   " Soft breaks for text files
-  autocmd FileType markdown setlocal wrap linebreak nolist spell
+  autocmd FileType md setlocal wrap linebreak nolist spell
   autocmd FileType tex setlocal wrap linebreak nolist spell
   autocmd FileType text setlocal wrap linebreak nolist spell
 
