@@ -1,4 +1,4 @@
-:imap jj <Esc>
+:imap fd <Esc>
 
 " Set a sane font
 set gfn="Ubuntu Monospace"

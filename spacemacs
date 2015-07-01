@@ -19,13 +19,20 @@
      ;; ----------------------------------------------------------------
      auto-completion
      better-defaults
+     coffee
+     css
+     dockerfile
      emacs-lisp
+     extra-langs
      (git :variables
            git-gutter-use-fringe t)
      haskell
+     html
+     javascript
      markdown
      ;; org
      python
+     python-pylint
      shell
      syntax-checking
      )

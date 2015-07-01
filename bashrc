@@ -106,7 +106,7 @@ alias maintain='sudo apt-get update; sudo apt-get upgrade; sudo apt-get autoremo
 alias font_refresh='fc-cache -f -v'
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.cabal/bin:/opt/cabal/1.20/bin:/opt/ghc/7.8.3/bin
-export EDITOR=gvim
+export EDITOR=emacs
 CDPATH=~/.paths
 
 # enable tab cycling with multiple completions
