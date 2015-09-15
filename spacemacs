@@ -30,7 +30,7 @@
      html
      javascript
      markdown
-     ;; org
+     org
      python
      python-pylint
      shell
@@ -142,7 +142,7 @@ before layers configuration."
    ;; point when it reaches the top or bottom of the screen.
    dotspacemacs-smooth-scrolling t
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
-   dotspacemacs-smartparens-strict-mode nil
+   dotspacemacs-smartparens-strict-mode t
    ;; Select a scope to highlight delimiters. Possible value is `all',
    ;; `current' or `nil'. Default is `all'
    dotspacemacs-highlight-delimiters 'all
@@ -157,7 +157,6 @@ before layers configuration."
    dotspacemacs-default-package-repository nil
    )
   ;; User initialization goes here
-  (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
   (add-hook 'after-init-hook #'global-flycheck-mode)
   (setq-default evil-escape-delay 0.2)
   )
@@ -181,10 +180,19 @@ layers configuration."
  '(ahs-idle-timer 0 t)
  '(ahs-inhibit-face-list nil)
  '(ring-bell-function (quote ignore) t)
- '(safe-local-variable-values (quote ((haskell-process-use-ghci . t) (haskell-indent-spaces . 4)))))
+ '(safe-local-variable-values
+   (quote
+    ((haskell-process-args-ghci "ghci")
+     (haskell-process-path-ghci . "stack")
+     (haskell-process-type . stack-ghci)
+     (hindent-style . "gibiansky")
+     (haskell-indent-spaces . 2)
+     (haskell-process-use-ghci . t)
+     (haskell-indent-spaces . 4)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
