@@ -24,6 +24,7 @@
      dockerfile
      emacs-lisp
      extra-langs
+     gherkin-mode
      (git :variables
            git-gutter-use-fringe t)
      haskell
@@ -31,8 +32,7 @@
      javascript
      markdown
      org
-     python
-     python-pylint
+     elpy
      shell
      syntax-checking
      )
