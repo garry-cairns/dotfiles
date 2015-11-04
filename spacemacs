@@ -19,12 +19,9 @@
      ;; ----------------------------------------------------------------
      auto-completion
      better-defaults
-     coffee
-     css
      dockerfile
      emacs-lisp
      extra-langs
-     gherkin-mode
      (git :variables
            git-gutter-use-fringe t)
      haskell
@@ -32,7 +29,6 @@
      javascript
      markdown
      org
-     elpy
      shell
      syntax-checking
      )

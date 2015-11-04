@@ -108,7 +108,8 @@ alias git_update='git clone git://git.kernel.org/pub/scm/git/git.git'
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.cabal/bin:/opt/cabal/1.20/bin:/opt/ghc/7.8.3/bin
 export PATH=$PATH:$HOME/code/GAE/google_appengine/
-export EDITOR=emacs
+export EDITOR="emacsclient -t"
+export VISUAL="emacsclient -c -a emacs"
 CDPATH=~/.paths
 
 # enable tab cycling with multiple completions
