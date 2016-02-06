@@ -105,11 +105,9 @@ alias clean_docker_images='sudo docker rmi `sudo docker images --no-trunc -aq`'
 alias maintain='sudo apt-get update; sudo apt-get upgrade; sudo apt-get autoremove; sudo apt-get autoclean'
 alias font_refresh='fc-cache -f -v'
 alias git_update='git clone git://git.kernel.org/pub/scm/git/git.git'
-export PATH=$PATH:$HOME/.local/bin
-export PATH=$PATH:$HOME/.cabal/bin:/opt/cabal/1.20/bin:/opt/ghc/7.8.3/bin
-export PATH=$PATH:$HOME/code/GAE/google_appengine/
 export EDITOR="emacsclient -t"
 export VISUAL="emacsclient -c -a emacs"
+export PATH=$PATH:$HOME/.local/bin
 CDPATH=~/.paths
 
 # enable tab cycling with multiple completions
