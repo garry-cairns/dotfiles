@@ -26,6 +26,9 @@
 ;; Emacs configuration
 
 (setq inhibit-startup-message t)
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq indent-line-function 'insert-tab)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 (tool-bar-mode -1)
@@ -105,9 +108,11 @@
       "cp" 'clipboard-yank
       "fs" 'save-buffer
       "gs" 'magit-status
+      "iu" 'insert-char
       "lf" 'load-file
       "ne" 'flycheck-next-error
       "pe" 'flycheck-previous-error
+      "si" 'whitespace-mode
       "tn" 'linum-mode
       "w1" 'delete-other-windows
       "qq" 'save-buffers-kill-emacs
