@@ -112,6 +112,8 @@
       "lf" 'load-file
       "ne" 'flycheck-next-error
       "pe" 'flycheck-previous-error
+      "rm" 'notmuch
+      "sm" 'message-send-and-exit
       "si" 'whitespace-mode
       "tn" 'linum-mode
       "w1" 'delete-other-windows
@@ -127,6 +129,17 @@
   (use-package evil-indent-textobject
     :ensure t))
 
+;; Notmuch
+
+(setq user-mail-address "garryjcairns@gmail.com"
+      user-full-name "Garry Cairns")
+(setq smtpmail-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-service 25)
+(setq send-mail-function 'smtpmail-send-it)
+(evil-add-hjkl-bindings notmuch-search-mode-map 'emacs)
+(evil-add-hjkl-bindings notmuch-show-mode-map 'emacs)
+(evil-set-initial-state 'notmuch-search-mode 'emacs)
+(evil-set-initial-state 'notmuch-show-mode 'emacs)
 
 ;; Org mode
 

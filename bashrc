@@ -102,6 +102,7 @@ fi
 
 alias clean_docker_containers='sudo docker rm `sudo docker ps --no-trunc -aq`'
 alias clean_docker_images='sudo docker rmi `sudo docker images --no-trunc -aq`'
+alias getmail='offlineimap; notmuch new'
 alias maintain='sudo apt-get update; sudo apt-get upgrade; sudo apt-get autoremove; sudo apt-get autoclean'
 alias font_refresh='fc-cache -f -v'
 alias git_update='git clone git://git.kernel.org/pub/scm/git/git.git'
