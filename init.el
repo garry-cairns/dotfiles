@@ -29,6 +29,7 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq indent-line-function 'insert-tab)
+(setq ediff-split-window-function 'split-window-horizontally)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 (tool-bar-mode -1)
@@ -108,6 +109,7 @@
       "cp" 'clipboard-yank
       "fs" 'save-buffer
       "gs" 'magit-status
+      "hs" 'split-window-horizontally
       "iu" 'insert-char
       "lf" 'load-file
       "ne" 'flycheck-next-error
@@ -117,7 +119,10 @@
       "si" 'whitespace-mode
       "tn" 'linum-mode
       "w1" 'delete-other-windows
+      "wk" 'windmove-left
+      "wj" 'windmove-right
       "qq" 'save-buffers-kill-emacs
+      "zp" 'zeal-at-point
       )
     )
 
@@ -136,6 +141,7 @@
 (setq smtpmail-smtp-server "smtp.gmail.com"
       smtpmail-smtp-service 25)
 (setq send-mail-function 'smtpmail-send-it)
+(setq notmuch-hello-sections '(notmuch-hello-insert-header notmuch-hello-insert-alltags))
 (evil-add-hjkl-bindings notmuch-search-mode-map 'emacs)
 (evil-add-hjkl-bindings notmuch-show-mode-map 'emacs)
 (evil-set-initial-state 'notmuch-search-mode 'emacs)
@@ -154,9 +160,12 @@
 (use-package elpy
   :ensure t
   :config
+  (elpy-enable)
   (setq elpy-rpc-python-command "python3")
+  (setq elpy-rpc-backend "jedi")
   (elpy-use-cpython "/usr/bin/python3")
-  (setq python-check-command "~/.local/bin/pyflakes"))
+  (setq python-check-command "~/.local/bin/pyflakes")
+  (add-hook 'python-mode-hook (lambda () (show-paren-mode 1))))
 
 (use-package haskell-mode
   :ensure t)
@@ -171,6 +180,14 @@
 
 (use-package yaml-mode
   :ensure t)
+
+;; Zeal setup
+
+(use-package zeal-at-point
+  :ensure t)
+
+(add-to-list 'zeal-at-point-mode-alist '(haskell-mode . "haskell"))
+(add-to-list 'zeal-at-point-mode-alist '(python-mode . "python"))
 
 (provide 'init)
 ;;; init.el ends here
