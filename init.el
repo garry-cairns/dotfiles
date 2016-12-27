@@ -26,6 +26,7 @@
 ;; Emacs configuration
 
 (setq inhibit-startup-message t)
+(setq initial-scratch-message ";; Take notes here. <SPACE> e will edit a new file\n\n")
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq indent-line-function 'insert-tab)
