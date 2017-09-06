@@ -81,7 +81,6 @@
 (use-package leuven-theme
   :ensure t)
 
-
 ;; Evil mode
 
 (use-package evil
@@ -116,6 +115,7 @@
       "ne" 'flycheck-next-error
       "pe" 'flycheck-previous-error
       "rm" 'notmuch
+      "rt" 'elpy-test
       "sm" 'message-send-and-exit
       "si" 'whitespace-mode
       "tn" 'linum-mode
@@ -147,6 +147,7 @@
 (evil-add-hjkl-bindings notmuch-show-mode-map 'emacs)
 (evil-set-initial-state 'notmuch-search-mode 'emacs)
 (evil-set-initial-state 'notmuch-show-mode 'emacs)
+(add-hook 'notmuch-message-mode-hook 'turn-off-auto-fill)
 
 ;; Org mode
 
@@ -182,6 +183,18 @@
 (use-package yaml-mode
   :ensure t)
 
+;; Maths
+
+(use-package company-math
+  :ensure t)
+
+(add-to-list 'company-backends 'company-math-symbols-latex)
+
+;; Utils
+
+(use-package restclient
+  :ensure t)
+
 ;; Zeal setup
 
 (use-package zeal-at-point
@@ -189,6 +202,21 @@
 
 (add-to-list 'zeal-at-point-mode-alist '(haskell-mode . "haskell"))
 (add-to-list 'zeal-at-point-mode-alist '(python-mode . "python"))
+(add-to-list 'exec-path "/usr/bin/zeal")
 
 (provide 'init)
 ;;; init.el ends here
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (zeal-at-point restclient company-math yaml-mode markdown-mode which-key use-package try powerline org-bullets magit leuven-theme key-chord flycheck-color-mode-line evil-surround evil-leader evil-indent-textobject evil-escape elpy))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

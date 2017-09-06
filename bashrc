@@ -109,7 +109,7 @@ alias git_update='git clone git://git.kernel.org/pub/scm/git/git.git'
 export EDITOR="emacsclient -t"
 export VISUAL="emacsclient -c -a emacs"
 export PATH=$PATH:$HOME/.local/bin
-export PATH=$PATH:$HOME/otto
+export PATH=$PATH:$HOME/.cargo/bin
 CDPATH=~/.paths
 
 # enable tab cycling with multiple completions
