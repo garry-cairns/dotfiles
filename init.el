@@ -31,6 +31,7 @@
 (setq-default tab-width 4)
 (setq indent-line-function 'insert-tab)
 (setq ediff-split-window-function 'split-window-horizontally)
+(add-to-list 'default-frame-alist '(font . "Source Code Pro" ))
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 (tool-bar-mode -1)
@@ -115,7 +116,7 @@
       "ne" 'flycheck-next-error
       "pe" 'flycheck-previous-error
       "rm" 'notmuch
-      "rt" 'elpy-test
+      ;;"rt" 'elpy-test
       "sm" 'message-send-and-exit
       "si" 'whitespace-mode
       "tn" 'linum-mode
@@ -136,6 +137,9 @@
     :ensure t))
 
 ;; Notmuch
+
+(use-package notmuch
+  :ensure t)
 
 (setq user-mail-address "garryjcairns@gmail.com"
       user-full-name "Garry Cairns")
@@ -159,16 +163,6 @@
 
 ;; Programming and writing environments
 
-(use-package elpy
-  :ensure t
-  :config
-  (elpy-enable)
-  (setq elpy-rpc-python-command "python3")
-  (setq elpy-rpc-backend "jedi")
-  (elpy-use-cpython "/usr/bin/python3")
-  (setq python-check-command "~/.local/bin/pyflakes")
-  (add-hook 'python-mode-hook (lambda () (show-paren-mode 1))))
-
 (use-package haskell-mode
   :ensure t)
 
@@ -180,6 +174,9 @@
 (use-package markdown-mode
   :ensure t)
 
+(use-package nix-mode
+  :ensure t)
+
 (use-package yaml-mode
   :ensure t)
 
@@ -188,7 +185,11 @@
 (use-package company-math
   :ensure t)
 
+(use-package tex-mode
+  :ensure auctex)
+
 (add-to-list 'company-backends 'company-math-symbols-latex)
+'(TeX-PDF-mode t)
 
 ;; Utils
 
@@ -202,7 +203,7 @@
 
 (add-to-list 'zeal-at-point-mode-alist '(haskell-mode . "haskell"))
 (add-to-list 'zeal-at-point-mode-alist '(python-mode . "python"))
-(add-to-list 'exec-path "/usr/bin/zeal")
+(add-to-list 'exec-path "/home/garry/.nix-profile/bin/zeal")
 
 (provide 'init)
 ;;; init.el ends here
@@ -213,7 +214,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (zeal-at-point restclient company-math yaml-mode markdown-mode which-key use-package try powerline org-bullets magit leuven-theme key-chord flycheck-color-mode-line evil-surround evil-leader evil-indent-textobject evil-escape elpy))))
+    (markdown-mode zeal-at-point yaml-mode which-key use-package try restclient powerline org-bullets magit leuven-theme key-chord intero flycheck-color-mode-line evil-surround evil-leader evil-indent-textobject evil-escape elpy company-math))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
