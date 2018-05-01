@@ -33,6 +33,7 @@
 (setq ediff-split-window-function 'split-window-horizontally)
 (add-to-list 'default-frame-alist '(font . "Source Code Pro" ))
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
+(add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
 
 (tool-bar-mode -1)
 (savehist-mode 1)
@@ -56,6 +57,18 @@
   (setq key-chord-one-key-delay 0.3))
 
 (use-package magit
+  :ensure t)
+
+(use-package neotree
+  :ensure t
+  :config
+  (add-hook 'neotree-mode-hook
+          (lambda ()
+            (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-quick-look)
+            (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
+            (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter))))
+
+(use-package projectile
   :ensure t)
 
 (use-package try
@@ -114,6 +127,10 @@
       "iu" 'insert-char
       "lf" 'load-file
       "ne" 'flycheck-next-error
+      "nt" 'neotree-toggle
+      "oa" 'org-insert-todo-heading
+      "os" 'org-schedule
+      "ot" 'org-todo
       "pe" 'flycheck-previous-error
       "rm" 'notmuch
       ;;"rt" 'elpy-test
