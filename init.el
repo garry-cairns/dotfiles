@@ -31,6 +31,7 @@
 (setq-default tab-width 4)
 (setq indent-line-function 'insert-tab)
 (setq ediff-split-window-function 'split-window-horizontally)
+(setq ispell-dictionary "british")
 (add-to-list 'default-frame-alist '(font . "Source Code Pro" ))
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
@@ -137,6 +138,7 @@
       "sm" 'message-send-and-exit
       "si" 'whitespace-mode
       "tn" 'linum-mode
+      "vb" 'eval-buffer
       "w1" 'delete-other-windows
       "wk" 'windmove-left
       "wj" 'windmove-right
@@ -177,6 +179,13 @@
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
+;; Presentations
+
+(use-package demo-it
+  :ensure t)
+
+(use-package org-tree-slide
+  :ensure t)
 
 ;; Programming and writing environments
 
@@ -224,17 +233,3 @@
 
 (provide 'init)
 ;;; init.el ends here
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (markdown-mode zeal-at-point yaml-mode which-key use-package try restclient powerline org-bullets magit leuven-theme key-chord intero flycheck-color-mode-line evil-surround evil-leader evil-indent-textobject evil-escape elpy company-math))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
