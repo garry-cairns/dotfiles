@@ -32,7 +32,7 @@
 (setq indent-line-function 'insert-tab)
 (setq ediff-split-window-function 'split-window-horizontally)
 (setq ispell-dictionary "british")
-(add-to-list 'default-frame-alist '(font . "Source Code Pro" ))
+(add-to-list 'default-frame-alist '(font . "Hasklig Medium" ))
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
 
@@ -191,16 +191,16 @@
 
 (use-package haskell-mode
   :ensure t)
-
-(use-package intero
-  :ensure t
-  :config
-  (add-hook 'haskell-mode-hook 'intero-mode))
+(setq haskell-process-wrapper-function
+        (lambda (args) (apply 'nix-shell-command (nix-current-sandbox) args)))
 
 (use-package markdown-mode
   :ensure t)
 
 (use-package nix-mode
+  :ensure t)
+
+(use-package nixos-options
   :ensure t)
 
 (use-package yaml-mode
@@ -215,7 +215,7 @@
   :ensure auctex)
 
 (add-to-list 'company-backends 'company-math-symbols-latex)
-'(TeX-PDF-mode t)
+(setq latex-run-command "pdflatex")
 
 ;; Utils
 
