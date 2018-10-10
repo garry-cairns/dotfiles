@@ -130,6 +130,8 @@
       "ne" 'flycheck-next-error
       "nt" 'neotree-toggle
       "oa" 'org-insert-todo-heading
+      "oc" 'org-columns
+      "oe" 'org-set-effort
       "os" 'org-schedule
       "ot" 'org-todo
       "pe" 'flycheck-previous-error
@@ -140,8 +142,10 @@
       "tn" 'linum-mode
       "vb" 'eval-buffer
       "w1" 'delete-other-windows
-      "wk" 'windmove-left
-      "wj" 'windmove-right
+      "wj" 'windmove-down
+      "wh" 'windmove-left
+      "wl" 'windmove-right
+      "wk" 'windmove-up
       "qq" 'save-buffers-kill-emacs
       "zp" 'zeal-at-point
       )
@@ -189,6 +193,27 @@
 
 ;; Programming and writing environments
 
+;; Language server protocol
+
+(use-package lsp-mode
+  :ensure t
+  :config
+  (add-hook 'lsp-mode-hook 'lsp-ui-mode))
+
+(use-package lsp-ui
+  :ensure t)
+
+(use-package lsp-haskell
+  :ensure t
+  :config
+  (add-hook 'haskell-mode-hook #'lsp-haskell-enable)
+  (add-hook 'haskell-mode-hook 'flycheck-mode))
+
+(use-package lsp-python
+  :ensure t
+  :config
+  (add-hook 'python-mode-hook #'lsp-python-enable))
+
 (use-package haskell-mode
   :ensure t)
 (setq haskell-process-wrapper-function
@@ -232,4 +257,17 @@
 (add-to-list 'exec-path "/home/garry/.nix-profile/bin/zeal")
 
 (provide 'init)
-;;; init.el ends here
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (lsp-python lsp-haskell lsp-ui lsp-mode zeal-at-point yaml-mode which-key use-package try restclient projectile powerline org-tree-slide org-present org-bullets notmuch nixos-options nix-mode neotree markdown-mode magit leuven-theme key-chord intero flycheck-color-mode-line evil-surround evil-leader evil-indent-textobject evil-escape elpy demo-it company-math auctex all-the-icons))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
