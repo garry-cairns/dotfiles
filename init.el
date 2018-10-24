@@ -82,19 +82,20 @@
 
 ;; Appearance
 
-(use-package powerline
-  :ensure t
-  :config
-  (powerline-center-evil-theme)
-
- (use-package flycheck-color-mode-line
-    :ensure t
-    :config
-    (add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
-)
-
 (use-package leuven-theme
   :ensure t)
+
+(setq-default mode-line-format
+      (list
+       " %b" ;; buffer name
+       "%+ " ;; show if buffer is modified
+       " %m " ;; major mode
+       flycheck-mode-line
+       "   Line: %l Column: %c "
+       ))
+(set-face-foreground 'mode-line "#a4ffb3")
+(set-face-background 'mode-line "#006611")
+(set-face-background 'mode-line-inactive "#82b28b")
 
 ;; Evil mode
 
@@ -257,17 +258,3 @@
 (add-to-list 'exec-path "/home/garry/.nix-profile/bin/zeal")
 
 (provide 'init)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (lsp-python lsp-haskell lsp-ui lsp-mode zeal-at-point yaml-mode which-key use-package try restclient projectile powerline org-tree-slide org-present org-bullets notmuch nixos-options nix-mode neotree markdown-mode magit leuven-theme key-chord intero flycheck-color-mode-line evil-surround evil-leader evil-indent-textobject evil-escape elpy demo-it company-math auctex all-the-icons))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
